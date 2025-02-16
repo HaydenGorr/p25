@@ -1,16 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Lexend, Cinzel, Space_Mono, Cormorant, Space_Grotesk } from 'next/font/google'
+// Note: Industry font isn't available on Google Fonts, you'll need to use a different source or alternative
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+export const lexend = Lexend({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lexend',
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const cinzel = Cinzel({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-cinzel',
+})
+
+export const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-mono',
+})
+
+export const cormorant = Cormorant({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-cormorant',
+})
+
+export const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +47,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${lexend.variable} ${cinzel.variable} ${spaceMono.variable} ${cormorant.variable} ${spaceGrotesk.variable} font-lexend bg-home_page-bg-medium`}
       >
+        <div>
+          <div className="w-full p-8 flex justify-between text-black font-light">
+            <p className="font-bold">HG</p>
+            <div className="flex space-x-4 items-center">
+              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Game Writing</button>
+              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Game Design</button>
+              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Engineering</button>
+              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Creative Writing</button>
+              <button className="bg-black text-white/90 p-3 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Contact</button>
+            </div>
+          </div>
         {children}
+        </div>
       </body>
     </html>
   );
