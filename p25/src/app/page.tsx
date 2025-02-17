@@ -1,109 +1,97 @@
 import Link from 'next/link'
+import PortfolioLink from './home-page-components/portfolio-link'
+import { Home_Page } from './string_consts.json'
+const portfoliolinks = Home_Page.Portfolio_links
+const AiChatFeature = Home_Page.AI_Chat_Feature
+import TestButton from './home-page-components/test_button'
+import AnimationWrapper from './home-page-components/animation_wrapper'
 
 const HomePage = () => {
-  return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-56 px-4 text-black/90 h-96 flex justify-center">
-      {/** The translate is a hack to get it centred. Figure out a proper solution later */}
-        <div className="max-w-4xl flex flex-col -translate-y-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-3">
-            Creative Portfolios
-          </h1>
-          <p className="text-sm mb-8 text-black/50">
-            Game Writing • Game Design • Engineering • Creative Writing
-          </p>
-        </div>
-      </section>
+return (
+	<AnimationWrapper>
+	<main className="min-h-screen px-8">
+	{/* Hero Section */}
+	<section className="text-black/90 h-[30rem] max-h-screen flex justify-center items-center">
+	{/** The translate is a hack to get it centred. Figure out a proper solution later */}
+		<div className="max-w-[90rem] flex flex-col">
+			<h1 className="font-bold mb-3 text-center">
+				{Home_Page.Title}
+			</h1>
+			<p className="text-sm mb-8 text-black/50 text-center">
+				{Home_Page.Subtitle}
+			</p>
+		</div>
+		
+	</section>
 
-      <section className='w-full py-8 bg-home_page-bg-dark'>
-        <div className='mx-auto w-full max-w-4xl'>
-          <p className='text-black font-bold text-xl w-fit mx-auto mb-8'>Talk to my work?</p>
-          <p className='text-black/80 '>I've bestowed the great curse of life into the inanimate matter that is my work.</p>
-          <button className='bg-purple-200 w-fit text-purple-900 px-4 py-2 rounded-lg mt-4'>try it out</button>
-        </div>
-      </section>
+	{/** AI chat feature */}
+	<section className='w-full py-4 max-w-[90rem] mx-auto mb-28'>
+		<div className='flex flex-col sm:flex-row rounded-xl shadow-2xl p-8 bg-amber-300/40'>
+		<div className='w-full sm:w-1/3 mb-8 sm:mb-0 sm:mr-8 h-full'>
+			<img 
+			src={"/background/1.png"} 
+			className='w-full h-full max-h-64 rounded-xl object-cover '
+			/>
+		</div>
+		<div className='w-full sm:w-2/3 flex flex-col'>
+			<h2 className='font-bold  w-fit mx-auto mb-8'>{AiChatFeature.Title}</h2>
+			<p className='text-black/70 flex flex-grow'>{Home_Page.AI_Chat_Feature.Subtitle}</p>
+			<button className='bg-home_page-secondary/80 w-fit text-black px-8 py-2 rounded-xl mt-4 mx-auto shadow-lg duration-300 transition-colors hover:bg-Home_Page-secondary'>{Home_Page.AI_Chat_Feature.Button}</button>
 
-      {/* Portfolio Sections */}
-      <section className="max-w-4xl mx-auto py-16 px-4 w-full">
-        <h1 className='text-black text-3xl font-bold mx-auto w-fit mb-8'>Some of my work</h1>
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Game Writing Section */}
-          <Link href="/game-writing" 
-                className="group p-8 rounded-lg bg-gw-bg-light hover:bg-gw-bg-medium transition-colors duration-300 shadow-md">
-                  <div className='h-52 bg-yellow-400/30 rounded-lg mb-8'></div>
-            <h2 className="text-2xl font-bold text-gw-text-primary mb-4">
-              Game Writing
-            </h2>
-            <p className="text-gw-text-secondary mb-4">
-              Narrative design, dialogue systems, and story development for games.
-            </p>
-            <span className="text-gw-primary group-hover:translate-x-1 inline-block transition-transform duration-300">
-              View Projects →
-            </span>
-          </Link>
+			{/* <div className='w-fit mx-auto'>
+			<TestButton/>
+			</div>	 */}
+		</div>
+		</div>
+	</section>
 
-          {/* Game Design Section */}
-          <Link href="/game-design"
-                className="group p-8 rounded-lg bg-gd-bg-light hover:bg-gd-bg-medium transition-colors duration-300 shadow-md">
-            <h2 className="text-2xl font-bold text-gd-text-primary mb-4">
-              Game Design
-            </h2>
-            <p className="text-gd-text-secondary mb-4">
-              Game mechanics, systems design, and interactive experiences.
-            </p>
-            <span className="text-gd-primary group-hover:translate-x-1 inline-block transition-transform duration-300">
-              View Projects →
-            </span>
-          </Link>
+	
 
-          {/* Engineering Section */}
-          <Link href="/engineering"
-                className="group p-8 rounded-lg bg-eng-bg-light hover:bg-eng-bg-medium transition-colors duration-300 shadow-md">
-            <h2 className="text-2xl font-bold text-eng-text-primary mb-4">
-              Engineering
-            </h2>
-            <p className="text-eng-text-secondary mb-4">
-              Software development projects and technical solutions.
-            </p>
-            <span className="text-eng-primary group-hover:translate-x-1 inline-block transition-transform duration-300">
-              View Projects →
-            </span>
-          </Link>
+	{/* Portfolio Sections */}
+	<section className="max-w-[90rem] mx-auto py-16 w-full">
+		<h2 className='font-bold mx-auto w-fit mb-8'>{Home_Page.Portfolio_links.Title}</h2>
+		<div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+			<PortfolioLink href={"/game-writing"} img={"/background/1.png"} title={portfoliolinks.Game_Writing.Title} subtitle={portfoliolinks.Game_Writing.Subtitle}/>
+			<PortfolioLink href={"/game-design"} img={"/background/2.png"} title={portfoliolinks.Game_Design.Title} subtitle={portfoliolinks.Game_Design.Subtitle}/>
+			<PortfolioLink href={"/software-engineering"} img={"/background/3.png"} title={portfoliolinks.Software_Engineering.Title} subtitle={portfoliolinks.Software_Engineering.Subtitle}/>
+			<PortfolioLink href={"/creative-writing"} img={"/background/4.jpg"} title={portfoliolinks.Creative_Writing.Title} subtitle={portfoliolinks.Creative_Writing.Subtitle}/>
+		</div>
+	</section>
 
-          {/* Creative Writing Section */}
-          <Link href="/creative-writing"
-                className="group p-8 rounded-lg bg-cw-bg-light hover:bg-cw-bg-medium transition-colors duration-300 shadow-md">
-            <h2 className="text-2xl font-bold text-cw-text-primary mb-4">
-              Creative Writing
-            </h2>
-            <p className="text-cw-text-secondary mb-4">
-              Short stories, narrative essays, and creative explorations.
-            </p>
-            <span className="text-cw-primary group-hover:translate-x-1 inline-block transition-transform duration-300">
-              View Projects →
-            </span>
-          </Link>
-        </div>
-      </section>
+	{/* Archive */}
+	<section className="py-16">
+		<div className="max-w-[90rem] mx-auto text-center">
+		<h2 className="text-3xl font-bold text-slate-900 mb-6">
+			Archive
+		</h2>
+		<p className="text-lg text-slate-600 mb-8">
+			This is where all the content that didn't make the portfolio goes.
+		</p>
+		<Link href="/about"
+				className="inline-block px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors duration-300">
+			Visit Archive
+		</Link>
+		</div>
+	</section>
 
-      {/* About Section Preview */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">
-            About Me
-          </h2>
-          <p className="text-lg text-slate-600 mb-8">
-            I'm a multidisciplinary creator focused on crafting engaging narratives and experiences across different mediums.
-          </p>
-          <Link href="/about"
-                className="inline-block px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors duration-300">
-            Learn More
-          </Link>
-        </div>
-      </section>
-    </main>
-  )
+	{/* About Section Preview */}
+	<section className="py-16 ">
+		<div className="max-w-[90rem] mx-auto text-center">
+		<h2 className="text-3xl font-bold text-slate-900 mb-6">
+			About Me
+		</h2>
+		<p className="text-lg text-slate-600 mb-8">
+			I'm a multidisciplinary creator focused on crafting engaging narratives and experiences across different mediums.
+		</p>
+		<Link href="/about"
+				className="inline-block px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors duration-300">
+			Learn More
+		</Link>
+		</div>
+	</section>
+	</main>
+	</AnimationWrapper>
+)
 }
 
 export default HomePage

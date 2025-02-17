@@ -1,0 +1,33 @@
+{
+    "Home_Page":{
+        "Title": "Hayden Gorringe",
+        "Subtitle": "Game Writing • Game Design • Engineering • Creative Writing",
+        "AI_Chat_Feature": {
+            "Title": "Wanna talk to my work?",
+            "Subtitle": "I've bestowed the great curse of life into my inanimate work. Once my work was just composed of electrons, pixels, logic gates, and deleriously huge matricies, but now there is a pair of blinking eyes and a mouth that loves to talk.",
+            "Button": "try it out"
+        },
+        "Portfolio_links":{
+            "Title": "Some of my work",
+            "Game_Design": {
+                "Title": "Game Design",
+                "Subtitle": "Game mechanics, systems design, and interactive experiences."
+            },
+            "Game_Writing": {
+                "Title": "Game Writing",
+                "Subtitle": "Narrative design, dialogue systems, and story development for games."
+            },
+            "Software_Engineering": {
+                "Title": "Software Engineering",
+                "Subtitle": "Software development projects and technical solutions."
+            },
+            "Creative_Writing": {
+                "Title": "Creative Writing",
+                "Subtitle": "Short stories, narrative essays, and creative explorations."
+            }
+        }
+    },
+    "Game_Design":{
+        "Title": "Game Design"
+    }
+}

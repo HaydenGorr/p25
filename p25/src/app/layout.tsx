@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Lexend, Cinzel, Space_Mono, Cormorant, Space_Grotesk } from 'next/font/google'
-// Note: Industry font isn't available on Google Fonts, you'll need to use a different source or alternative
+import Header from "./home-page-components/header";
+import AnimationWrapper from "./home-page-components/animation_wrapper";
+import { AnimatePresence } from "motion/react";
 
 export const lexend = Lexend({
   subsets: ['latin'],
@@ -47,20 +49,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lexend.variable} ${cinzel.variable} ${spaceMono.variable} ${cormorant.variable} ${spaceGrotesk.variable} font-lexend bg-home_page-bg-medium`}
+        className={`${lexend.variable} ${cinzel.variable} ${spaceMono.variable} ${cormorant.variable} ${spaceGrotesk.variable} font-lexend bg-home_page-bg-medium text-black`}
       >
         <div>
-          <div className="w-full p-8 flex justify-between text-black font-light">
-            <p className="font-bold">HG</p>
-            <div className="flex space-x-4 items-center">
-              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Game Writing</button>
-              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Game Design</button>
-              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Engineering</button>
-              <button className="bg-home_page-bg-dark p-2 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Creative Writing</button>
-              <button className="bg-black text-white/90 p-3 hover:bg-home_page-primary/30 duration-300 transition-colors rounded-lg">Contact</button>
-            </div>
-          </div>
-        {children}
+          <Header/>
+          <AnimatePresence mode="wait">
+          {children}
+          </AnimatePresence>
         </div>
       </body>
     </html>
