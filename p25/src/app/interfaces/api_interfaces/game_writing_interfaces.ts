@@ -60,7 +60,7 @@ interface ContentfulField {
     omitted?: boolean;
   }
   
-export interface GameWriting_API {
+export interface GameWritingContent {
     name: string;
     description: string;
     displayField: string;

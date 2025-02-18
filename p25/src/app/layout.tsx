@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Lexend, Cinzel, Space_Mono, Cormorant, Space_Grotesk } from 'next/font/google'
 import Header from "./home-page-components/header";
-import AnimationWrapper from "./home-page-components/animation_wrapper";
-import { AnimatePresence } from "motion/react";
+import FadeInWrapper from "./home-page-components/animation_wrappers/fade_in_wrapper";
 
 export const lexend = Lexend({
   subsets: ['latin'],
@@ -53,9 +52,9 @@ export default function RootLayout({
       >
         <div>
           <Header/>
-          <AnimatePresence mode="wait">
+          <FadeInWrapper>
           {children}
-          </AnimatePresence>
+          </FadeInWrapper>
         </div>
       </body>
     </html>
