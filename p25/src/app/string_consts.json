@@ -28,6 +28,10 @@
         }
     },
     "Game_Design":{
-        "Title": "Game Design"
+        "Title": "Game Design",
+        "Subtitle": "",
+        "Errors": {
+            "Contentful_Interal_Server_Error": "There was an issue collecting the game design data."
+        }
     }
 }

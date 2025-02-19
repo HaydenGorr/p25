@@ -51,7 +51,7 @@ const Header = ({ className, onNavigate }: Props) => {
     };
     
     return (
-        <div className={`${className} w-full p-4 flex justify-between items-center text-black font-light max-w-[90rem] mx-auto`}>
+        <div className={`${className} w-full p-4 flex justify-between items-center text-black font-light max-w-[90rem] mx-auto`} style={{backgroundColor: "#efeee7"}}>
             <p className="font-bold">HG</p>
             <div className="flex space-x-4 items-center text-sm">
                 <NavigationButton path="/game-writing" label="Game Writing" />

@@ -1,83 +1,88 @@
-export interface GameDesignContent {
-    name: string;
-    description: string;
-    displayField: string;
-    fields: Field[];
-    sys: Sys;
-}
-  
-interface Field {
-    id: string;
-    name: string;
-    type: string;
-    localized: boolean;
-    required: boolean;
-    validations: Validation[];
-    disabled: boolean;
-    omitted: boolean;
-    items?: FieldItems;
-}
+// types/contentful.ts
 
-interface FieldItems {
-    type: string;
-    validations: Validation[];
-    linkType: string;
-}
-  
-interface Validation {
-    enabledMarks?: string[];
-    enabledNodeTypes?: string[];
-    in?: string[];
-    linkMimetypeGroup?: string[];
-    message?: string;
-    nodes?: Record<string, any>;
-}
-  
 interface Sys {
     space: {
-    sys: {
-        type: string;
-        linkType: string;
+      sys: {
+        type: 'Link';
+        linkType: 'Space';
         id: string;
-    };
+      };
     };
     id: string;
     type: string;
     createdAt: string;
     updatedAt: string;
     environment: {
-    sys: {
+      sys: {
         id: string;
-        type: string;
-        linkType: string;
-    };
+        type: 'Link';
+        linkType: 'Environment';
+      };
     };
     publishedVersion: number;
-    publishedAt: string;
-    firstPublishedAt: string;
-    createdBy: {
-    sys: {
-        type: string;
-        linkType: string;
+    revision: number;
+    contentType?: {
+      sys: {
+        type: 'Link';
+        linkType: 'ContentType';
         id: string;
+      };
     };
-    };
-    updatedBy: {
-    sys: {
-        type: string;
-        linkType: string;
-        id: string;
-    };
-    };
-    publishedCounter: number;
-    version: number;
-    publishedBy: {
-    sys: {
-        type: string;
-        linkType: string;
-        id: string;
-    };
-    };
-    urn: string;
-}
+    locale: string;
+  }
   
+  interface Asset {
+    metadata: {
+      tags: string[];
+      concepts: any[];
+    };
+    sys: Sys;
+    fields: {
+      title: string;
+      description: string;
+      file: {
+        url: string;
+        details: {
+          size: number;
+          image?: {
+            width: number;
+            height: number;
+          };
+        };
+        fileName: string;
+        contentType: string;
+      };
+    };
+  }
+  
+  interface RichTextContent {
+    data: Record<string, any>;
+    content: {
+      data: Record<string, any>;
+      content: {
+        data: Record<string, any>;
+        marks: any[];
+        value: string;
+        nodeType: string;
+      }[];
+      nodeType: string;
+    }[];
+    nodeType: string;
+  }
+  
+  export interface GameDesignEntry {
+    contentTypeId: 'gameDesign';
+    metadata: {
+      tags: string[];
+      concepts: any[];
+    };
+    sys: Sys;
+    fields: {
+      title: string;
+      status: string;
+      overview: RichTextContent;
+      screenshots: Asset[];
+      designDocs: Asset[];
+      genre: string[];
+    };
+  }

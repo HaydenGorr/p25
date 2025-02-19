@@ -51,7 +51,7 @@ export default function RootLayout({
         className={`${lexend.variable} ${cinzel.variable} ${spaceMono.variable} ${cormorant.variable} ${spaceGrotesk.variable} font-lexend bg-home_page-bg-medium text-black`}
       >
         <div>
-          <Header/>
+          {/* <Header/> */}
           <FadeInWrapper>
           {children}
           </FadeInWrapper>

@@ -9,7 +9,7 @@ import StaggerWrapper from './home-page-components/animation_wrappers/stagger_wr
 const HomePage = () => {
 return (
 	<FadeInWrapper>
-	<main className="min-h-screen px-8">
+	<main className="min-h-screen px-8" style={{backgroundColor: "#efeee7"}}>
 	<StaggerWrapper>
 	{/* Hero Section */}
 	<StaggerItem>
@@ -99,6 +99,7 @@ return (
 		</div>
 	</section>
 	</StaggerItem>
+	
 	</StaggerWrapper>
 	</main>
 	</FadeInWrapper>
