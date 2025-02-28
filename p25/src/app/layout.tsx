@@ -3,6 +3,7 @@ import "./globals.css";
 import { Lexend, Cinzel, Space_Mono, Cormorant, Space_Grotesk } from 'next/font/google'
 import Header from "./home-page-components/header";
 import FadeInWrapper from "./home-page-components/animation_wrappers/fade_in_wrapper";
+import Asdasdas from "./asdasdas";
 
 export const lexend = Lexend({
   subsets: ['latin'],
@@ -50,12 +51,12 @@ export default function RootLayout({
       <body
         className={`${lexend.variable} ${cinzel.variable} ${spaceMono.variable} ${cormorant.variable} ${spaceGrotesk.variable} font-lexend bg-home_page-bg-medium text-black`}
       >
-        <div>
-          {/* <Header/> */}
-          <FadeInWrapper>
-          {children}
-          </FadeInWrapper>
-        </div>
+          <Asdasdas>
+            <Header/>
+            <FadeInWrapper>
+            {children}
+            </FadeInWrapper>
+          </Asdasdas>
       </body>
     </html>
   );

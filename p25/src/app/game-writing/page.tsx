@@ -2,7 +2,9 @@ import Link from 'next/link'
 
 const GameWriting = () => {
   return (
-    <div></div>
+    <div>
+      
+    </div>
   )
 }
 

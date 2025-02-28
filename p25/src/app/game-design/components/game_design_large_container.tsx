@@ -54,7 +54,7 @@ return (
       {Array.isArray(game_design_item?.fields?.genre) &&
         game_design_item.fields.genre.map((genre, index) => (
           <p
-            key={index}
+            key={genre}
             className="bg-gd-secondary rounded-full px-4 py-0 text-white/80"
           >
             {genre}
@@ -97,7 +97,7 @@ return (
     </div>
   </div>
 
-  {/* ----------- IMAGES CAROUSEL (same everywhere) ----------- */}
+  {/* ----------- IMAGES CAROUSEL ----------- */}
   <div className="rounded-xl shadow-2xl w-full">
     {Array.isArray(game_design_item?.fields?.screenshots) &&
     game_design_item.fields.screenshots.length > 0 ? (
@@ -111,6 +111,10 @@ return (
         No screenshots available
       </div>
     )}
+  </div>
+
+  <div>
+    <button>asd</button>
   </div>
 </div>
 

@@ -59,17 +59,17 @@ return (
 		<h1 className='font-space-grotesk mx-auto w-fit my-8 mt-56 text-gd-text-primary'>{Game_Design.Title}</h1>
 		<p className='font-space-grotesk mx-auto w-fit mb-56 text-gd-text-secondary'>{Game_Design.Subtitle}</p>
 
-		<div className='space-y-8 mb-32'>
+		<div className=''>
 		{content.map((GameDesignObject, index)=>{
 			return(
-				<>
+				<div className={`${index >= 1 ? 'h-screen mb-8' : 'h-[calc(100vh-40rem)]'} flex items-end`}>
 				{/* <GameDesignCompactContainer key={GameDesignObject.sys.id} game_design_item={GameDesignObject} /> */}
 				<div className='flex'>
 					<h2>{index+1}<span className='text-sm'>/{content.length}</span></h2>
 					<div className='h-[2px] flex-grow bg-black/80 self-end -translate-y-2 ml-8'/>
 				</div>
 				<GameDesignLargeContainer key={GameDesignObject.sys.id + 1} game_design_item={GameDesignObject}/>
-				</>
+				</div>
 			)
 		})}
 		</div>

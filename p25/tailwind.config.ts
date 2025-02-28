@@ -77,6 +77,7 @@ export default {
 					primary: '#0F172A',  // slate-900
 					secondary: '#334155', // slate-700
 				},
+				background: '#aa5320'
 			},
 			// Creative Writing Colors
 			'cw': {
